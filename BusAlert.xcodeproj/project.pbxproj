@@ -12,6 +12,8 @@
 		44A990CB202945BD00339728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A990C9202945BD00339728 /* Main.storyboard */; };
 		44A990CD202945BD00339728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A990CC202945BD00339728 /* Assets.xcassets */; };
 		44A990D0202945BD00339728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A990CE202945BD00339728 /* LaunchScreen.storyboard */; };
+		44A990D8202947AB00339728 /* BusEstimateTimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990D7202947AB00339728 /* BusEstimateTimeProvider.swift */; };
+		44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990D92029508400339728 /* BusEstimateTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		44A990CC202945BD00339728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44A990CF202945BD00339728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44A990D1202945BD00339728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A990D7202947AB00339728 /* BusEstimateTimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEstimateTimeProvider.swift; sourceTree = "<group>"; };
+		44A990D92029508400339728 /* BusEstimateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEstimateTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				44A990CC202945BD00339728 /* Assets.xcassets */,
 				44A990CE202945BD00339728 /* LaunchScreen.storyboard */,
 				44A990D1202945BD00339728 /* Info.plist */,
+				44A990D7202947AB00339728 /* BusEstimateTimeProvider.swift */,
+				44A990D92029508400339728 /* BusEstimateTime.swift */,
 			);
 			path = BusAlert;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A990C8202945BD00339728 /* ViewController.swift in Sources */,
+				44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */,
 				44A990C6202945BD00339728 /* AppDelegate.swift in Sources */,
+				44A990D8202947AB00339728 /* BusEstimateTimeProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
