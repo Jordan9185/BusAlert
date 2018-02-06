@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var bl15Label: UILabel!
+    @IBOutlet weak var f951Label: UILabel!
     let qiaodongBusStopForBL15: String = "114984"
     let qiaodongBusStopFor951: String = "180691"
     var timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
@@ -42,9 +44,9 @@ extension ViewController: BusEstimateTimeProviderDelegate {
             return "已離站"
         }
         if second/60 == 0 {
-            return "再過 \(second) 秒 後抵達"
+            return "預估再過 \(second) 秒 後抵達"
         }
-        return "再過 \(second/60) 分 \(second%60) 秒 後抵達"
+        return "預估再過 \(second/60) 分 \(second%60) 秒 後抵達"
     }
     
     func provider(prvider: BusEstimateTimeProvider, didGet busEstimateTimes: [BusEstimateTime]) {
@@ -55,10 +57,14 @@ extension ViewController: BusEstimateTimeProviderDelegate {
             
             let estimateTime = secondToMinute(second: Int(busEstimateTime.estimateTime)!)
             
-            if busEstimateTime.stopId == qiaodongBusStopFor951 {
-                print("951 \(estimateTime)")
-            } else if busEstimateTime.stopId == qiaodongBusStopForBL15  {
-                print("BL15 \(estimateTime)")
+            DispatchQueue.main.async {
+                if busEstimateTime.stopId == self.qiaodongBusStopFor951 {
+                    self.f951Label.text = "951 \(estimateTime)"
+                    print("951 \(estimateTime)")
+                } else if busEstimateTime.stopId == self.qiaodongBusStopForBL15  {
+                    self.bl15Label.text = "藍15 \(estimateTime)"
+                    print("藍15 \(estimateTime)")
+                }
             }
         }
     }

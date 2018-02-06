@@ -1,24 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CEB-33-ZbK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--🐟🐠樓下站牌der公車預估到站 APP-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BusAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="school-bus" translatesAutoresizingMaskIntoConstraints="NO" id="TOX-vt-fie">
+                                <rect key="frame" x="0.0" y="124" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TOX-vt-fie" secondAttribute="height" multiplier="375:128" id="AcT-Rt-cPP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="藍15 已離站" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5f-iD-LBb">
+                                <rect key="frame" x="20" y="312" width="335" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="951 已離站" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-Ms-MUj">
+                                <rect key="frame" x="20" y="366" width="335" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TOX-vt-fie" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="IKa-1D-5UZ"/>
+                            <constraint firstItem="Ryg-Ms-MUj" firstAttribute="top" secondItem="Y5f-iD-LBb" secondAttribute="bottom" constant="30" id="JdY-FF-OaJ"/>
+                            <constraint firstItem="TOX-vt-fie" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KNl-8Z-u6E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TOX-vt-fie" secondAttribute="trailing" id="NeJ-1F-Tjk"/>
+                            <constraint firstItem="Ryg-Ms-MUj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Yhk-vE-0l5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y5f-iD-LBb" secondAttribute="trailing" constant="20" id="cpe-1d-go2"/>
+                            <constraint firstItem="Y5f-iD-LBb" firstAttribute="top" secondItem="TOX-vt-fie" secondAttribute="bottom" constant="60" id="suj-LN-YZD"/>
+                            <constraint firstItem="Y5f-iD-LBb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zRO-uH-yEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ryg-Ms-MUj" secondAttribute="trailing" constant="20" id="ztZ-os-hnQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="🐟🐠樓下站牌der公車預估到站 APP" id="Gfd-aM-dfz"/>
+                    <connections>
+                        <outlet property="bl15Label" destination="Y5f-iD-LBb" id="u78-1k-8ul"/>
+                        <outlet property="f951Label" destination="Ryg-Ms-MUj" id="dXD-70-NCo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="593" y="44"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4dS-iW-eqF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CEB-33-ZbK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FeP-2h-cJ1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XZs-0L-Ve8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyH-wc-PDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-238" y="44"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="school-bus" width="512" height="512"/>
+    </resources>
 </document>
