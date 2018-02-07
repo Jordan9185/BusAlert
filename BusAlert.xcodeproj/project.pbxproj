@@ -8,24 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		44A990C6202945BD00339728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990C5202945BD00339728 /* AppDelegate.swift */; };
-		44A990C8202945BD00339728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990C7202945BD00339728 /* ViewController.swift */; };
+		44A990C8202945BD00339728 /* OutDoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990C7202945BD00339728 /* OutDoorViewController.swift */; };
 		44A990CB202945BD00339728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A990C9202945BD00339728 /* Main.storyboard */; };
 		44A990CD202945BD00339728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44A990CC202945BD00339728 /* Assets.xcassets */; };
 		44A990D0202945BD00339728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A990CE202945BD00339728 /* LaunchScreen.storyboard */; };
-		44A990D8202947AB00339728 /* BusEstimateTimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990D7202947AB00339728 /* BusEstimateTimeProvider.swift */; };
+		44A990D8202947AB00339728 /* BusInfomationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990D7202947AB00339728 /* BusInfomationProvider.swift */; };
 		44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990D92029508400339728 /* BusEstimateTime.swift */; };
+		44A990E02029ADF600339728 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990DF2029ADF600339728 /* BusStop.swift */; };
+		44A990E22029AF3E00339728 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990E12029AF3E00339728 /* GoBack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44A990C2202945BD00339728 /* BusAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A990C5202945BD00339728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44A990C7202945BD00339728 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44A990C7202945BD00339728 /* OutDoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutDoorViewController.swift; sourceTree = "<group>"; };
 		44A990CA202945BD00339728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44A990CC202945BD00339728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44A990CF202945BD00339728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44A990D1202945BD00339728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44A990D7202947AB00339728 /* BusEstimateTimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEstimateTimeProvider.swift; sourceTree = "<group>"; };
+		44A990D7202947AB00339728 /* BusInfomationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusInfomationProvider.swift; sourceTree = "<group>"; };
 		44A990D92029508400339728 /* BusEstimateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEstimateTime.swift; sourceTree = "<group>"; };
+		44A990DF2029ADF600339728 /* BusStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
+		44A990E12029AF3E00339728 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,34 @@
 		44A990C4202945BD00339728 /* BusAlert */ = {
 			isa = PBXGroup;
 			children = (
+				44A990E4202AD9CF00339728 /* Bus */,
+				44A990E3202AD9B900339728 /* OutDoor */,
 				44A990C5202945BD00339728 /* AppDelegate.swift */,
-				44A990C7202945BD00339728 /* ViewController.swift */,
 				44A990C9202945BD00339728 /* Main.storyboard */,
 				44A990CC202945BD00339728 /* Assets.xcassets */,
 				44A990CE202945BD00339728 /* LaunchScreen.storyboard */,
 				44A990D1202945BD00339728 /* Info.plist */,
-				44A990D7202947AB00339728 /* BusEstimateTimeProvider.swift */,
-				44A990D92029508400339728 /* BusEstimateTime.swift */,
 			);
 			path = BusAlert;
+			sourceTree = "<group>";
+		};
+		44A990E3202AD9B900339728 /* OutDoor */ = {
+			isa = PBXGroup;
+			children = (
+				44A990C7202945BD00339728 /* OutDoorViewController.swift */,
+			);
+			path = OutDoor;
+			sourceTree = "<group>";
+		};
+		44A990E4202AD9CF00339728 /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				44A990D7202947AB00339728 /* BusInfomationProvider.swift */,
+				44A990D92029508400339728 /* BusEstimateTime.swift */,
+				44A990DF2029ADF600339728 /* BusStop.swift */,
+				44A990E12029AF3E00339728 /* GoBack.swift */,
+			);
+			path = Bus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,10 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44A990C8202945BD00339728 /* ViewController.swift in Sources */,
+				44A990E22029AF3E00339728 /* GoBack.swift in Sources */,
+				44A990E02029ADF600339728 /* BusStop.swift in Sources */,
+				44A990C8202945BD00339728 /* OutDoorViewController.swift in Sources */,
 				44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */,
 				44A990C6202945BD00339728 /* AppDelegate.swift in Sources */,
-				44A990D8202947AB00339728 /* BusEstimateTimeProvider.swift in Sources */,
+				44A990D8202947AB00339728 /* BusInfomationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
