@@ -21,6 +21,7 @@
 		44A990ED202BE5B200339728 /* MotcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990EC202BE5B200339728 /* MotcApp.swift */; };
 		44A990FB202C50DB00339728 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A990F6202C506800339728 /* CryptoSwift.framework */; };
 		44A990FE202CA47C00339728 /* BackHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990FD202CA47C00339728 /* BackHomeViewController.swift */; };
+		44A99102202CAF8D00339728 /* CryptoSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44A990F6202C506800339728 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,19 @@
 			remoteInfo = Tests;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44A99101202CAF7C00339728 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				44A99102202CAF8D00339728 /* CryptoSwift.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		44A990C2202945BD00339728 /* BusAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +182,7 @@
 				44A990BE202945BC00339728 /* Sources */,
 				44A990BF202945BC00339728 /* Frameworks */,
 				44A990C0202945BC00339728 /* Resources */,
+				44A99101202CAF7C00339728 /* CopyFiles */,
 			);
 			buildRules = (
 			);

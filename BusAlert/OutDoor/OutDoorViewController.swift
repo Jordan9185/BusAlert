@@ -83,9 +83,9 @@ extension OutDoorViewController: BusInfomationProviderDelegate {
                 }
             case -3:
                 if busEstimateTime.stopId == BusStop.qiaodongFor951 {
-                    self.f951Label.text = "951 沒車了ＱＱ"
+                    self.f951Label.text = "951 沒車了ＱＱ，就乖乖在家吧"
                 } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
-                    self.bl15Label.text = "藍15 沒車了ＱＱ"
+                    self.bl15Label.text = "藍15 沒車了ＱＱ，就乖乖在家吧"
                 }
             case -4:
                 if busEstimateTime.stopId == BusStop.qiaodongFor951 {

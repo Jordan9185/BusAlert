@@ -57,9 +57,9 @@ extension BackHomeViewController: BusInfomationProviderDelegate {
             return "走了，搭下一班吧"
         }
         if second/60 == 0 {
-            return "再過 \(second) 秒 後就來了，快出門"
+            return "再過 \(second) 秒 後就來了，快點上車不要玩手機了"
         }
-        return "再過 \(second/60) 分 \(second%60) 秒 後就來了，快出門"
+        return "再過 \(second/60) 分 \(second%60) 秒 後就來了，快點上車不要玩手機了"
     }
     
     func provider(prvider: BusInfomationProvider, didGet busEstimateTimes: [BusEstimateTime]) {
@@ -82,9 +82,9 @@ extension BackHomeViewController: BusInfomationProviderDelegate {
                 }
             case -3:
                 if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
-                    self.f951Label.text = "951 沒車了ＱＱ"
+                    self.f951Label.text = "951 沒車了ＱＱ 快打給成成"
                 } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
-                    self.bl15Label.text = "藍15 沒車了ＱＱ"
+                    self.bl15Label.text = "藍15 沒車了ＱＱ 快打給成成"
                 }
             case -4:
                 if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
