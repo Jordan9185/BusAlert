@@ -1,41 +1,40 @@
 //
-//  ViewController.swift
+//  BackHomeViewController.swift
 //  BusAlert
 //
-//  Created by Chia cheng Lin on 2018/2/6.
+//  Created by Chia cheng Lin on 2018/2/8.
 //  Copyright © 2018年 Chia cheng Lin. All rights reserved.
 //
 
 import UIKit
 
-class OutDoorViewController: UIViewController {
+class BackHomeViewController: UIViewController {
 
     @IBOutlet weak var bl15Label: UILabel!
     @IBOutlet weak var f951Label: UILabel!
     @IBOutlet weak var lastUpdateTimeLabel: UILabel!
+    let busInformationProvider: BusInfomationProvider = BusInfomationProvider()
     
     var timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timer.schedule(deadline: DispatchTime.now(), repeating: .seconds(30), leeway: .milliseconds(10))
-
+        
         self.timer.setEventHandler(handler: {
             DispatchQueue.main.sync {
                 self.getBusTime()
             }
         })
-
+        
         self.timer.resume()
         
-        //BusInfomationProvider.share.getBusLocation(routeName: "藍15")
-        //RailwayInfomationProvider.share.getTRALiveBoardInfomation(stationId: RailLiveBoard.HsichihStation)
     }
     
     @objc func getBusTime() {
-        BusInfomationProvider.share.delegate = self
-        BusInfomationProvider.share.getBusBusEstimateTime(stopId: BusStop.qiaodongFor951)
-        BusInfomationProvider.share.getBusBusEstimateTime(stopId: BusStop.qiaodongForBL15)
+        busInformationProvider.delegate = self
+        busInformationProvider.getBusBusEstimateTime(stopId: BusStop.nangangMRTFor951)
+        busInformationProvider.getBusBusEstimateTime(stopId: BusStop.nangangMRTForBL15)
     }
     
     func labelAnimation(label: UILabel) {
@@ -48,7 +47,7 @@ class OutDoorViewController: UIViewController {
     }
 }
 
-extension OutDoorViewController: BusInfomationProviderDelegate {
+extension BackHomeViewController: BusInfomationProviderDelegate {
     func provider(prvider: BusInfomationProvider, didGet busStops: [BusStop]) {
         
     }
@@ -66,48 +65,48 @@ extension OutDoorViewController: BusInfomationProviderDelegate {
     func provider(prvider: BusInfomationProvider, didGet busEstimateTimes: [BusEstimateTime]) {
         
         let busEstimateTime = busEstimateTimes.first!
-
+        
         DispatchQueue.main.async {
             switch busEstimateTime.estimateTime {
             case -1:
-                if busEstimateTime.stopId == BusStop.qiaodongFor951 {
+                if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
                     self.f951Label.text = "951 還沒發車"
-                } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
+                } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
                     self.bl15Label.text = "藍15 還沒發車"
                 }
             case -2:
-                if busEstimateTime.stopId == BusStop.qiaodongFor951 {
+                if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
                     self.f951Label.text = "951 交管不停靠"
-                } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
+                } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
                     self.bl15Label.text = "藍15 交管不停靠"
                 }
             case -3:
-                if busEstimateTime.stopId == BusStop.qiaodongFor951 {
+                if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
                     self.f951Label.text = "951 沒車了ＱＱ"
-                } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
+                } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
                     self.bl15Label.text = "藍15 沒車了ＱＱ"
                 }
             case -4:
-                if busEstimateTime.stopId == BusStop.qiaodongFor951 {
+                if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
                     self.f951Label.text = "951 今天不開車顆顆"
-                } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
+                } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
                     self.bl15Label.text = "藍15 今天不開車顆顆"
                 }
             default:
                 let estimateTime = self.secondToMinute(second: busEstimateTime.estimateTime)
                 
-                if busEstimateTime.stopId == BusStop.qiaodongFor951 {
+                if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
                     self.f951Label.text = "951 \(estimateTime)"
                     print("951 \(estimateTime)")
-                } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
+                } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
                     self.bl15Label.text = "藍15 \(estimateTime)"
                     print("藍15 \(estimateTime)")
                 }
             }
             
-            if busEstimateTime.stopId == BusStop.qiaodongFor951 {
+            if busEstimateTime.stopId == BusStop.nangangMRTFor951 {
                 self.labelAnimation(label: self.f951Label)
-            } else if busEstimateTime.stopId == BusStop.qiaodongForBL15  {
+            } else if busEstimateTime.stopId == BusStop.nangangMRTForBL15  {
                 self.labelAnimation(label: self.bl15Label)
             }
             

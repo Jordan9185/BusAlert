@@ -16,7 +16,29 @@
 		44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990D92029508400339728 /* BusEstimateTime.swift */; };
 		44A990E02029ADF600339728 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990DF2029ADF600339728 /* BusStop.swift */; };
 		44A990E22029AF3E00339728 /* GoBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990E12029AF3E00339728 /* GoBack.swift */; };
+		44A990E7202B091700339728 /* RailwayInfomationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990E6202B091700339728 /* RailwayInfomationProvider.swift */; };
+		44A990EB202B09F300339728 /* RailLiveBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990EA202B09F300339728 /* RailLiveBoard.swift */; };
+		44A990ED202BE5B200339728 /* MotcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990EC202BE5B200339728 /* MotcApp.swift */; };
+		44A990FB202C50DB00339728 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A990F6202C506800339728 /* CryptoSwift.framework */; };
+		44A990FE202CA47C00339728 /* BackHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A990FD202CA47C00339728 /* BackHomeViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		44A990F5202C506800339728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44A990F0202C506800339728 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		44A990F7202C506800339728 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44A990F0202C506800339728 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		44A990C2202945BD00339728 /* BusAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +52,11 @@
 		44A990D92029508400339728 /* BusEstimateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusEstimateTime.swift; sourceTree = "<group>"; };
 		44A990DF2029ADF600339728 /* BusStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		44A990E12029AF3E00339728 /* GoBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBack.swift; sourceTree = "<group>"; };
+		44A990E6202B091700339728 /* RailwayInfomationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailwayInfomationProvider.swift; sourceTree = "<group>"; };
+		44A990EA202B09F300339728 /* RailLiveBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RailLiveBoard.swift; sourceTree = "<group>"; };
+		44A990EC202BE5B200339728 /* MotcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotcApp.swift; sourceTree = "<group>"; };
+		44A990F0202C506800339728 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		44A990FD202CA47C00339728 /* BackHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackHomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A990FB202C50DB00339728 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,8 +74,10 @@
 		44A990B9202945BC00339728 = {
 			isa = PBXGroup;
 			children = (
+				44A990F0202C506800339728 /* CryptoSwift.xcodeproj */,
 				44A990C4202945BD00339728 /* BusAlert */,
 				44A990C3202945BD00339728 /* Products */,
+				44A990F9202C50B100339728 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +92,8 @@
 		44A990C4202945BD00339728 /* BusAlert */ = {
 			isa = PBXGroup;
 			children = (
+				44A990FC202CA46400339728 /* BackHome */,
+				44A990E5202B08DF00339728 /* Railway */,
 				44A990E4202AD9CF00339728 /* Bus */,
 				44A990E3202AD9B900339728 /* OutDoor */,
 				44A990C5202945BD00339728 /* AppDelegate.swift */,
@@ -69,6 +101,7 @@
 				44A990CC202945BD00339728 /* Assets.xcassets */,
 				44A990CE202945BD00339728 /* LaunchScreen.storyboard */,
 				44A990D1202945BD00339728 /* Info.plist */,
+				44A990EC202BE5B200339728 /* MotcApp.swift */,
 			);
 			path = BusAlert;
 			sourceTree = "<group>";
@@ -90,6 +123,39 @@
 				44A990E12029AF3E00339728 /* GoBack.swift */,
 			);
 			path = Bus;
+			sourceTree = "<group>";
+		};
+		44A990E5202B08DF00339728 /* Railway */ = {
+			isa = PBXGroup;
+			children = (
+				44A990E6202B091700339728 /* RailwayInfomationProvider.swift */,
+				44A990EA202B09F300339728 /* RailLiveBoard.swift */,
+			);
+			path = Railway;
+			sourceTree = "<group>";
+		};
+		44A990F1202C506800339728 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44A990F6202C506800339728 /* CryptoSwift.framework */,
+				44A990F8202C506800339728 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44A990F9202C50B100339728 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44A990FC202CA46400339728 /* BackHome */ = {
+			isa = PBXGroup;
+			children = (
+				44A990FD202CA47C00339728 /* BackHomeViewController.swift */,
+			);
+			path = BackHome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,12 +205,35 @@
 			mainGroup = 44A990B9202945BC00339728;
 			productRefGroup = 44A990C3202945BD00339728 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 44A990F1202C506800339728 /* Products */;
+					ProjectRef = 44A990F0202C506800339728 /* CryptoSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				44A990C1202945BC00339728 /* BusAlert */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		44A990F6202C506800339728 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 44A990F5202C506800339728 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		44A990F8202C506800339728 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 44A990F7202C506800339728 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		44A990C0202945BC00339728 /* Resources */ = {
@@ -164,11 +253,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A990FE202CA47C00339728 /* BackHomeViewController.swift in Sources */,
+				44A990ED202BE5B200339728 /* MotcApp.swift in Sources */,
 				44A990E22029AF3E00339728 /* GoBack.swift in Sources */,
 				44A990E02029ADF600339728 /* BusStop.swift in Sources */,
 				44A990C8202945BD00339728 /* OutDoorViewController.swift in Sources */,
 				44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */,
 				44A990C6202945BD00339728 /* AppDelegate.swift in Sources */,
+				44A990E7202B091700339728 /* RailwayInfomationProvider.swift in Sources */,
+				44A990EB202B09F300339728 /* RailLiveBoard.swift in Sources */,
 				44A990D8202947AB00339728 /* BusInfomationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

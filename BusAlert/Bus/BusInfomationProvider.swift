@@ -25,29 +25,30 @@ class BusInfomationProvider {
     
     weak var delegate: BusInfomationProviderDelegate?
     
-//    func getBusStops(routeId: String) {
+    func getBusLocation(routeName: String) {
 //        let url = URL(string: "http://data.ntpc.gov.tw/od/data/api/62519D6B-9B6D-43E1-BFD7-D66007005E6F?$format=json&$filter=routeId%20eq%20\(routeId)")
-//
-//
-//        URLSession.shared.dataTask(with: url!) { (data, res, error) in
-//            if error != nil {
-//                self.delegate?.provider(prvider: self, didFailWith: .dataFetchError)
-//                return
-//            }
-//
-//            do {
-//                let jsonData = try JSONSerialization.jsonObject(with: data!, options: [])
-//
-//                if let records = jsonData as? [[String: AnyObject]] {
-//                    records.forEach({ (record) in
-//                        //TODO: 解ＪＳＯＮ
-//                    })
-//                }
-//            } catch {
-//                self.delegate?.provider(prvider: self, didFailWith: .jsonConvertError)
-//            }
-//        }.resume()
-//    }
+       
+        let url =  URL(string:"http://ptx.transportdata.tw/MOTC/v2/Bus/EstimatedTimeOfArrival/City/NewTaipei/%E8%97%8D15?$filter=StopSequence%20le%204&$top=30&$format=JSON")
+
+        let urlRequest = MotcApp.urlRequestAddMotcHeader(url: url!)
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, res, error) in
+            if error != nil {
+                self.delegate?.provider(prvider: self, didFailWith: .dataFetchError)
+                return
+            }
+
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data!, options: [])
+                if let jsonDic = jsonData as? [String:Any] {
+                    print(jsonDic)
+                }
+                
+            } catch {
+                self.delegate?.provider(prvider: self, didFailWith: .jsonConvertError)
+            }
+        }.resume()
+    }
     
     func getBusBusEstimateTime(stopId: String) {
         
