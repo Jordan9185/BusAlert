@@ -30,6 +30,14 @@ class BackHomeViewController: UIViewController {
         self.timer.resume()
     }
     
+    @IBAction func phoneCallForTaxi(_ sender: Any) {
+        CommonFunction.phoneCall(who: "55688")
+    }
+    
+    @IBAction func phoneCallForCheng(_ sender: Any) {
+        CommonFunction.phoneCall(who: "0963051812")
+    }
+    
     @objc func getBusTime() {
         print("==========================")
         busInformationProvider.delegate = self

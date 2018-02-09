@@ -31,6 +31,14 @@ class OutDoorViewController: UIViewController {
         //RailwayInfomationProvider.share.getTRALiveBoardInfomation(stationId: RailLiveBoard.HsichihStation)
     }
     
+    @IBAction func phoneCallForTaxi(_ sender: Any) {
+        CommonFunction.phoneCall(who: "55688")
+    }
+    
+    @IBAction func phoneCallForCheng(_ sender: Any) {
+        CommonFunction.phoneCall(who: "0963051812")
+    }
+    
     @objc func getBusTime() {
         print("==========================")
         BusInfomationProvider.share.delegate = self

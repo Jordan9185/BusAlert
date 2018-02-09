@@ -24,6 +24,7 @@
 		44A99102202CAF8D00339728 /* CryptoSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44A990F6202C506800339728 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44A99104202D35B000339728 /* BusGpsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99103202D35B000339728 /* BusGpsLocation.swift */; };
 		44A99107202D745400339728 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99106202D745400339728 /* Animation.swift */; };
+		44A99109202D9D4500339728 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99108202D9D4500339728 /* CommonFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		44A990FD202CA47C00339728 /* BackHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackHomeViewController.swift; sourceTree = "<group>"; };
 		44A99103202D35B000339728 /* BusGpsLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusGpsLocation.swift; sourceTree = "<group>"; };
 		44A99106202D745400339728 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		44A99108202D9D4500339728 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				44A990CE202945BD00339728 /* LaunchScreen.storyboard */,
 				44A990D1202945BD00339728 /* Info.plist */,
 				44A990EC202BE5B200339728 /* MotcApp.swift */,
+				44A99108202D9D4500339728 /* CommonFunction.swift */,
 			);
 			path = BusAlert;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				44A990C8202945BD00339728 /* OutDoorViewController.swift in Sources */,
 				44A990DA2029508400339728 /* BusEstimateTime.swift in Sources */,
 				44A990C6202945BD00339728 /* AppDelegate.swift in Sources */,
+				44A99109202D9D4500339728 /* CommonFunction.swift in Sources */,
 				44A990E7202B091700339728 /* RailwayInfomationProvider.swift in Sources */,
 				44A990EB202B09F300339728 /* RailLiveBoard.swift in Sources */,
 				44A99107202D745400339728 /* Animation.swift in Sources */,

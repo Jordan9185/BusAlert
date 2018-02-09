@@ -60,7 +60,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="🐟🐠家樓下der公車站牌" id="Gfd-aM-dfz"/>
+                    <navigationItem key="navigationItem" title="🐟🐠家樓下der公車站牌" id="Gfd-aM-dfz">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="taxi" id="gW7-xu-gUc">
+                            <connections>
+                                <action selector="phoneCallForTaxi:" destination="BYZ-38-t0r" id="8q3-rL-T8B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="phoneCall" id="6H7-Hu-hsp">
+                            <connections>
+                                <action selector="phoneCallForCheng:" destination="BYZ-38-t0r" id="x85-hX-JC0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bl15Label" destination="Y5f-iD-LBb" id="u78-1k-8ul"/>
                         <outlet property="f951Label" destination="Ryg-Ms-MUj" id="dXD-70-NCo"/>
@@ -122,7 +133,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="swP-XE-jcq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="🐟🐠要從展覽館回家惹" id="kxT-CI-qyx"/>
+                    <navigationItem key="navigationItem" title="🐟🐠要從展覽館回家惹" id="kxT-CI-qyx">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="taxi" id="qYF-kl-btx">
+                            <connections>
+                                <action selector="phoneCallForTaxi:" destination="1hG-bV-hiW" id="2c5-dK-hea"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="phoneCall" id="KLT-kH-VWt">
+                            <connections>
+                                <action selector="phoneCallForCheng:" destination="1hG-bV-hiW" id="aFA-S3-PLf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bl15Label" destination="vbf-Gs-3eg" id="D7T-8i-rmN"/>
                         <outlet property="f951Label" destination="oeU-2Q-GlJ" id="WqG-ha-O8g"/>
@@ -193,7 +215,9 @@
     <resources>
         <image name="home" width="25" height="25"/>
         <image name="luggage" width="25" height="25"/>
+        <image name="phoneCall" width="25" height="25"/>
         <image name="school-bus" width="512" height="512"/>
         <image name="school-bus-revert" width="512" height="512"/>
+        <image name="taxi" width="25" height="25"/>
     </resources>
 </document>
