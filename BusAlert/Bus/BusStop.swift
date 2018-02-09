@@ -20,10 +20,6 @@ import Foundation
 //stopLocationId:站位ID
 
 struct BusStop {
-    static let qiaodongForBL15: String = "114984"
-    static let qiaodongFor951: String = "180691"
-    static let nangangMRTForBL15: String = "115015"
-    static let nangangMRTFor951: String = "180760"
     let id: String
     let routeId: String
     let nameZh: String

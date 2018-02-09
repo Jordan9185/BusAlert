@@ -53,6 +53,7 @@ extension BackHomeViewController: BusInfomationProviderDelegate {
             let stopName = closedBus?.stopNameZh {
             
             let formatEstimateTime = secondToMinute(second: estimateTime)
+
             let msg = "\(routeName) 再過 \(formatEstimateTime) 後就要到 \(stopName) 了，準備上車囉！！"
             print(msg)
             DispatchQueue.main.async {
@@ -89,35 +90,33 @@ extension BackHomeViewController: BusInfomationProviderDelegate {
     
     func provider(prvider: BusInfomationProvider, didFailWith error: BusInfomationProviderError) {
         
-        if let busInfomationProviderError = error as? BusInfomationProviderError {
-            switch busInfomationProviderError {
-            case .noCarComing(let routeName):
-                let msg = "\(routeName) 沒有車靠近(3站內)"
-                print(msg)
-                DispatchQueue.main.async {
-                    switch routeName {
-                    case "藍15":
-                        self.bl15Label.text = msg
-                        Animation.labelAnimation(label: self.bl15Label, view: self.view)
-                        break
-                    case "951":
-                        self.f951Label.text = msg
-                        Animation.labelAnimation(label: self.f951Label, view: self.view)
-                        break
-                    default:
-                        print("unknown route")
-                    }
-                    
-                    let date = Date()
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
-                    
-                    let result = formatter.string(from: date)
-                    self.lastUpdateTimeLabel.text = "最後更新時間: \(result)"
+        switch error {
+        case .noCarComing(let routeName):
+            let msg = "\(routeName) 沒有車靠近(3站內)"
+            print(msg)
+            DispatchQueue.main.async {
+                switch routeName {
+                case "藍15":
+                    self.bl15Label.text = msg
+                    Animation.labelAnimation(label: self.bl15Label, view: self.view)
+                    break
+                case "951":
+                    self.f951Label.text = msg
+                    Animation.labelAnimation(label: self.f951Label, view: self.view)
+                    break
+                default:
+                    print("unknown route")
                 }
-            default:
-                print(busInfomationProviderError.localizedDescription)
+                
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                
+                let result = formatter.string(from: date)
+                self.lastUpdateTimeLabel.text = "最後更新時間: \(result)"
             }
+        default:
+            print(error.localizedDescription)
         }
     }
 }
