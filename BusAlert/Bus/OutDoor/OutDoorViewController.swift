@@ -27,8 +27,6 @@ class OutDoorViewController: UIViewController {
         })
 
         self.timer.resume()
-        
-        //RailwayInfomationProvider.share.getTRALiveBoardInfomation(stationId: RailLiveBoard.HsichihStation)
     }
     
     @IBAction func phoneCallForTaxi(_ sender: Any) {
@@ -42,8 +40,7 @@ class OutDoorViewController: UIViewController {
     @objc func getBusTime() {
         print("==========================")
         BusInfomationProvider.share.delegate = self
-        //BusInfomationProvider.share.getBusBusEstimateTime(stopId: BusStop.qiaodongFor951)
-        //BusInfomationProvider.share.getBusBusEstimateTime(stopId: BusStop.qiaodongForBL15)
+
         do{
             try BusInfomationProvider.share.getBusLocation(routeName: "藍15", goBack: 0, stopSequence: 4)
             try BusInfomationProvider.share.getBusLocation(routeName: "951", goBack: 0, stopSequence: 5)

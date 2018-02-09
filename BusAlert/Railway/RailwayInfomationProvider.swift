@@ -9,8 +9,21 @@
 import Foundation
 import CryptoSwift
 
+protocol RailwayInfomationProviderDelegate: class {
+    func provider(prvider: RailwayInfomationProvider, didGet railLiveBoards: [RailLiveBoard])
+    func provider(prvider: RailwayInfomationProvider, didFailWith error: RailwayInfomationProviderError)
+}
+
+enum RailwayInfomationProviderError: Error {
+    case jsonConvertError
+    case dataFetchError
+    case urlFormatError
+}
+
 class RailwayInfomationProvider {
     static let share = RailwayInfomationProvider()
+    
+    weak var delegate: RailwayInfomationProviderDelegate?
     
     func getTRALiveBoardInfomation(stationId: String) {
         
@@ -21,20 +34,32 @@ class RailwayInfomationProvider {
         URLSession.shared.dataTask(with: urlRequest) { (data, res, error) in
 
             if error != nil {
-                //self.delegate?.provider(prvider: self, didFailWith: .dataFetchError)
+                self.delegate?.provider(prvider: self, didFailWith: .dataFetchError)
                 return
             }
-            
+  
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                print(json)
-                //if let jsonDictionary = json as? [[String: Any]]{
-
-                    
-                    //self.delegate?.provider(prvider: self, didGet: busEstimateTimes)
                 
+                if let jsonDics = json as? [[String: Any]]{
+
+                    if jsonDics.count == 0 {
+                        //self.delegate?.provider(prvider: self, didFailWith: .noCarComing(routeName))
+                        return
+                    }
+                    
+                    var railLiveBoards: [RailLiveBoard] = []
+                    
+                    jsonDics.forEach({ (jsonDic) in
+                        let railLiveBoard = RailLiveBoard(jsonDic: jsonDic)
+
+                        railLiveBoards.append(railLiveBoard)
+                    })
+                    
+                    self.delegate?.provider(prvider: self, didGet: railLiveBoards)
+                }
             } catch {
-                //self.delegate?.provider(prvider: self, didFailWith: .jsonConvertError)
+                self.delegate?.provider(prvider: self, didFailWith: .jsonConvertError)
             }
         }.resume()
     }

@@ -22,20 +22,123 @@ import Foundation
 //    SrcUpdateTime (DateTime): 來源端平台資料更新時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz) ,
 //    UpdateTime (DateTime): 本平台資料更新時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
 //}
-
 struct RailLiveBoard {
     static let HsichihStation: String = "1005"
     let stationId: String
-    let stationName: String
+    let stationNameZh: String
+    let stationNameEn: String
     let trainNo: String
-    let direction: String
+    let direction: Int
     let trainClassificationId: String
-    let tripLine: String
+    let tripLine: Int
     let endingStationId: String
-    let endingStationName: String
+    let endingStationNameZh: String
+    let endingStationNameEn: String
     let scheduledArrivalTime: String
     let scheduledDepartureTime: String
-    let DelayTime: Int
-    let SrcUpdateTime: String
-    let UpdateTime: String
+    let delayTime: Int
+    let srcUpdateTime: String
+    let updateTime: String
+    
+    init() {
+        self.stationId = ""
+        self.stationNameZh = ""
+        self.stationNameEn = ""
+        self.trainNo = ""
+        self.direction = 0
+        self.trainClassificationId = ""
+        self.tripLine = 0
+        self.endingStationId = ""
+        self.endingStationNameZh = ""
+        self.endingStationNameEn = ""
+        self.scheduledArrivalTime = ""
+        self.scheduledDepartureTime = ""
+        self.delayTime = 0
+        self.srcUpdateTime = ""
+        self.updateTime = ""
+    }
+    
+    init(jsonDic: [String:Any]) {
+        if let delayTime = jsonDic["DelayTime"] as? Int {
+            self.delayTime = delayTime
+        } else {
+            self.delayTime = 0
+        }
+        
+        if let direction = jsonDic["Direction"] as? Int {
+            self.direction = direction
+        } else {
+            self.direction = 0
+        }
+        
+        if let endingStationId = jsonDic["EndingStationID"] as? String {
+            self.endingStationId = endingStationId
+        } else {
+            self.endingStationId = ""
+        }
+        
+        if let endingStationName = jsonDic["EndingStationName"] as? [String:String] {
+            self.endingStationNameZh = endingStationName["Zh_tw"] ?? ""
+            self.endingStationNameEn = endingStationName["En"] ?? ""
+        } else {
+            self.endingStationNameZh = ""
+            self.endingStationNameEn = ""
+        }
+        
+        if let scheduledArrivalTime = jsonDic["ScheduledArrivalTime"] as? String {
+            self.scheduledArrivalTime = scheduledArrivalTime
+        } else {
+            self.scheduledArrivalTime = ""
+        }
+        
+        if let scheduledDepartureTime = jsonDic["ScheduledDepartureTime"] as? String {
+            self.scheduledDepartureTime = scheduledDepartureTime
+        } else {
+            self.scheduledDepartureTime = ""
+        }
+        
+        if let srcUpdateTime = jsonDic["SrcUpdateTime"] as? String {
+            self.srcUpdateTime = srcUpdateTime
+        } else {
+            self.srcUpdateTime = ""
+        }
+        
+        if let stationId = jsonDic["StationID"] as? String {
+            self.stationId = stationId
+        } else {
+            self.stationId = ""
+        }
+        
+        if let stationName = jsonDic["StationName"] as? [String:String] {
+            self.stationNameZh = stationName["Zh_tw"] ?? ""
+            self.stationNameEn = stationName["En"] ?? ""
+        } else {
+            self.stationNameZh = ""
+            self.stationNameEn = ""
+        }
+        
+        if let trainClassificationId = jsonDic["TrainClassificationID"] as? String {
+            self.trainClassificationId = trainClassificationId
+        } else {
+            self.trainClassificationId = ""
+        }
+        
+        if let trainNo = jsonDic["TrainNo"] as? String {
+            self.trainNo = trainNo
+        } else {
+            self.trainNo = ""
+        }
+        
+        if let tripLine = jsonDic["TripLine"] as? Int {
+            self.tripLine = tripLine
+        } else {
+            self.tripLine = 0
+        }
+        
+        if let updateTime = jsonDic["UpdateTime"] as? String {
+            self.updateTime = updateTime
+        } else {
+            self.updateTime = ""
+        }
+    }
 }

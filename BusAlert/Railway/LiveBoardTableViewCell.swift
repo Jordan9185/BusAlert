@@ -10,6 +10,8 @@ import UIKit
 
 class LiveBoardTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var infomation: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
