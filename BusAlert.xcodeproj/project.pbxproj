@@ -25,6 +25,8 @@
 		44A99104202D35B000339728 /* BusGpsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99103202D35B000339728 /* BusGpsLocation.swift */; };
 		44A99107202D745400339728 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99106202D745400339728 /* Animation.swift */; };
 		44A99109202D9D4500339728 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99108202D9D4500339728 /* CommonFunction.swift */; };
+		44A9910F202DA2E300339728 /* TRALiveBoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9910E202DA2E300339728 /* TRALiveBoardTableViewController.swift */; };
+		44A99111202DA2F600339728 /* LiveBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A99110202DA2F600339728 /* LiveBoardTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		44A99103202D35B000339728 /* BusGpsLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusGpsLocation.swift; sourceTree = "<group>"; };
 		44A99106202D745400339728 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		44A99108202D9D4500339728 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
+		44A9910E202DA2E300339728 /* TRALiveBoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRALiveBoardTableViewController.swift; sourceTree = "<group>"; };
+		44A99110202DA2F600339728 /* LiveBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBoardTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +119,6 @@
 				44A99105202D743B00339728 /* Animation */,
 				44A990E5202B08DF00339728 /* Railway */,
 				44A990E4202AD9CF00339728 /* Bus */,
-				44A990FC202CA46400339728 /* BackHome */,
-				44A990E3202AD9B900339728 /* OutDoor */,
 				44A990C5202945BD00339728 /* AppDelegate.swift */,
 				44A990C9202945BD00339728 /* Main.storyboard */,
 				44A990CC202945BD00339728 /* Assets.xcassets */,
@@ -139,6 +141,8 @@
 		44A990E4202AD9CF00339728 /* Bus */ = {
 			isa = PBXGroup;
 			children = (
+				44A990FC202CA46400339728 /* BackHome */,
+				44A990E3202AD9B900339728 /* OutDoor */,
 				44A990D7202947AB00339728 /* BusInfomationProvider.swift */,
 				44A990D92029508400339728 /* BusEstimateTime.swift */,
 				44A990DF2029ADF600339728 /* BusStop.swift */,
@@ -153,6 +157,8 @@
 			children = (
 				44A990E6202B091700339728 /* RailwayInfomationProvider.swift */,
 				44A990EA202B09F300339728 /* RailLiveBoard.swift */,
+				44A9910E202DA2E300339728 /* TRALiveBoardTableViewController.swift */,
+				44A99110202DA2F600339728 /* LiveBoardTableViewCell.swift */,
 			);
 			path = Railway;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A990FE202CA47C00339728 /* BackHomeViewController.swift in Sources */,
+				44A99111202DA2F600339728 /* LiveBoardTableViewCell.swift in Sources */,
 				44A990ED202BE5B200339728 /* MotcApp.swift in Sources */,
 				44A99104202D35B000339728 /* BusGpsLocation.swift in Sources */,
 				44A990E22029AF3E00339728 /* GoBack.swift in Sources */,
@@ -297,6 +304,7 @@
 				44A990E7202B091700339728 /* RailwayInfomationProvider.swift in Sources */,
 				44A990EB202B09F300339728 /* RailLiveBoard.swift in Sources */,
 				44A99107202D745400339728 /* Animation.swift in Sources */,
+				44A9910F202DA2E300339728 /* TRALiveBoardTableViewController.swift in Sources */,
 				44A990D8202947AB00339728 /* BusInfomationProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
