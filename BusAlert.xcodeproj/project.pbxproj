@@ -118,11 +118,11 @@
 			children = (
 				44A99108202D9D4500339728 /* CommonFunction.swift */,
 				44A990EC202BE5B200339728 /* MotcApp.swift */,
+				44A990C9202945BD00339728 /* Main.storyboard */,
 				44A99105202D743B00339728 /* Animation */,
 				44A990E5202B08DF00339728 /* Railway */,
 				44A990E4202AD9CF00339728 /* Bus */,
 				44A990C5202945BD00339728 /* AppDelegate.swift */,
-				44A990C9202945BD00339728 /* Main.storyboard */,
 				44A990CC202945BD00339728 /* Assets.xcassets */,
 				44A990CE202945BD00339728 /* LaunchScreen.storyboard */,
 				44A990D1202945BD00339728 /* Info.plist */,
