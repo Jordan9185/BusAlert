@@ -1,26 +1,20 @@
 //
-//  TRALiveBoardTableViewController.swift
+//  TaipeiStationLiveBoardTableViewController.swift
 //  BusAlert
 //
-//  Created by Chia cheng Lin on 2018/2/9.
+//  Created by Chia cheng Lin on 2018/2/12.
 //  Copyright © 2018年 Chia cheng Lin. All rights reserved.
 //
 
 import UIKit
 
-enum Section {
-    case northBound
-    case southBound
-}
-
-class TRALiveBoardTableViewController: UITableViewController {
+class TaipeiStationLiveBoardTableViewController: UITableViewController {
     // MARK: - Properties
-    let sections: [Section] = [.northBound, .southBound]
+    var railwayInfomationProvider = RailwayInfomationProvider()
     
     var timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
     
     var northBoundTrain: [RailLiveBoard] = []
-    var southBoundTrain: [RailLiveBoard] = []
     
     var railLiveBoards: [RailLiveBoard] = [] {
         didSet {
@@ -28,14 +22,11 @@ class TRALiveBoardTableViewController: UITableViewController {
                 self.northBoundTrain = self.railLiveBoards.filter({ (liveBoard) -> Bool in
                     return liveBoard.direction == 0
                 })
-                self.southBoundTrain = self.railLiveBoards.filter({ (liveBoard) -> Bool in
-                    return liveBoard.direction == 1
-                })
                 self.tableView.reloadData()
             }
         }
     }
-
+    
     var trainTypes: [TrainType] = [] {
         didSet {
             assignTrainName()
@@ -45,17 +36,17 @@ class TRALiveBoardTableViewController: UITableViewController {
     // MARK: - App life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        RailwayInfomationProvider.share.delegate = self
+        railwayInfomationProvider.delegate = self
         
         self.timer.schedule(deadline: DispatchTime.now(), repeating: .seconds(60), leeway: .milliseconds(10))
         
         self.timer.setEventHandler(handler: {
             DispatchQueue.main.sync {
-                RailwayInfomationProvider.share.getTRALiveBoardInfomation(stationId: RailLiveBoard.HsichihStation)
+                self.railwayInfomationProvider.getTRALiveBoardInfomation(stationId: RailLiveBoard.TaipeiStation)
             }
         })
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.timer.resume()
@@ -68,45 +59,22 @@ class TRALiveBoardTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return northBoundTrain.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch sections[section] {
-        case .northBound:
-            return northBoundTrain.count
-        case .southBound:
-            return southBoundTrain.count
-        }
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LiveBoardTableViewCell", for: indexPath) as! LiveBoardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaipeiLiveBoardTableViewCell", for: indexPath) as! LiveBoardTableViewCell
         
-        switch sections[indexPath.section] {
-        case .northBound:
-            let liveBoard = northBoundTrain[indexPath.row]
-            
-            var msg = "往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
-            
-            if liveBoard.delayTime != 0 {
-                msg += "\n也可能會晚個 \(liveBoard.delayTime) 分鐘吧..."
-            }
-            
-            cell.infomation.text = msg
-            
-        case .southBound:
-            let liveBoard = southBoundTrain[indexPath.row]
-            
-            var msg = "往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
-            
-            if liveBoard.delayTime != 0 {
-                msg += "\n也可能會晚個 \(liveBoard.delayTime) 分鐘吧..."
-            }
-            
-            cell.infomation.text = msg
+        let liveBoard = northBoundTrain[indexPath.row]
+        
+        var msg = "往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
+        
+        if liveBoard.delayTime != 0 {
+            msg += "\n也可能會晚個 \(liveBoard.delayTime) 分鐘吧..."
         }
+        
+        cell.infomation.text = msg
         
         Animation.labelAnimation(label: cell.infomation, view: cell.contentView)
         
@@ -124,14 +92,9 @@ class TRALiveBoardTableViewController: UITableViewController {
         let imageView = UIImageView()
         
         label.font = UIFont(name: "ChalkboardSE-Bold", size: 25)
-        switch sections[section] {
-        case .northBound:
-            label.text = "往基隆那邊"
-            imageView.image = #imageLiteral(resourceName: "train")
-        case .southBound:
-            label.text = "往台北那邊"
-            imageView.image = #imageLiteral(resourceName: "train-revert")
-        }
+
+        label.text = "往汐止那邊"
+        imageView.image = #imageLiteral(resourceName: "train")
 
         imageView.contentMode = .scaleAspectFit
         stackView.addArrangedSubview(imageView)
@@ -176,17 +139,17 @@ class TRALiveBoardTableViewController: UITableViewController {
     }
 }
 
-extension TRALiveBoardTableViewController: RailwayInfomationProviderDelegate {
+extension TaipeiStationLiveBoardTableViewController: RailwayInfomationProviderDelegate {
     func provider(prvider: RailwayInfomationProvider, didGet railLiveBoards: [RailLiveBoard]) {
         
         railLiveBoards.forEach { (board) in
-            print(board.trainClassificationId)
+            print(board.trainNo)
         }
         
         self.railLiveBoards = railLiveBoards
         
         if trainTypes.isEmpty {
-            RailwayInfomationProvider.share.getTrainType()
+            railwayInfomationProvider.getTrainType()
         } else {
             self.assignTrainName()
         }
@@ -198,6 +161,5 @@ extension TRALiveBoardTableViewController: RailwayInfomationProviderDelegate {
     
     func provider(prvider: RailwayInfomationProvider, didGet trainTypes: [TrainType]) {
         self.trainTypes = trainTypes
-        print(trainTypes)
     }
 }

@@ -24,12 +24,14 @@ import Foundation
 //}
 struct RailLiveBoard {
     static let HsichihStation: String = "1005"
+    static let TaipeiStation: String = "1008"
     let stationId: String
     let stationNameZh: String
     let stationNameEn: String
     let trainNo: String
     let direction: Int
     let trainClassificationId: String
+    var trainTypeName: String = ""
     let tripLine: Int
     let endingStationId: String
     let endingStationNameZh: String
@@ -39,7 +41,7 @@ struct RailLiveBoard {
     let delayTime: Int
     let srcUpdateTime: String
     let updateTime: String
-    
+
     init() {
         self.stationId = ""
         self.stationNameZh = ""

@@ -10,6 +10,7 @@ import Foundation
 import CryptoSwift
 
 protocol RailwayInfomationProviderDelegate: class {
+    func provider(prvider: RailwayInfomationProvider, didGet trainTypes: [TrainType])
     func provider(prvider: RailwayInfomationProvider, didGet railLiveBoards: [RailLiveBoard])
     func provider(prvider: RailwayInfomationProvider, didFailWith error: RailwayInfomationProviderError)
 }
@@ -24,6 +25,30 @@ class RailwayInfomationProvider {
     static let share = RailwayInfomationProvider()
     
     weak var delegate: RailwayInfomationProviderDelegate?
+    
+    func getTrainType() {
+        let url = URL(string: "http://ptx.transportdata.tw/MOTC/v2/Rail/TRA/TrainType?$top=100&$format=JSON")
+        
+        let urlRequest = MotcApp.urlRequestAddMotcHeader(url: url!)
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, res, error) in
+            
+            if error != nil {
+                self.delegate?.provider(prvider: self, didFailWith: .dataFetchError)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let results = try decoder.decode([TrainType].self, from: data!)
+                self.delegate?.provider(prvider: self, didGet: results)
+            } catch(let error) {
+                print(error.localizedDescription)
+                self.delegate?.provider(prvider: self, didFailWith: .jsonConvertError)
+            }
+            
+        }.resume()
+    }
     
     func getTRALiveBoardInfomation(stationId: String) {
         
@@ -42,11 +67,6 @@ class RailwayInfomationProvider {
                 let json = try JSONSerialization.jsonObject(with: data!, options: [])
                 
                 if let jsonDics = json as? [[String: Any]]{
-
-                    if jsonDics.count == 0 {
-                        //self.delegate?.provider(prvider: self, didFailWith: .noCarComing(routeName))
-                        return
-                    }
                     
                     var railLiveBoards: [RailLiveBoard] = []
                     
