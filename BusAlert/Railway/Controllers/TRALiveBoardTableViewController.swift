@@ -88,7 +88,7 @@ class TRALiveBoardTableViewController: UITableViewController {
         case .northBound:
             let liveBoard = northBoundTrain[indexPath.row]
             
-            var msg = "往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
+            var msg = "車次 \(liveBoard.trainNo) 往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
             
             if liveBoard.delayTime != 0 {
                 msg += "\n也可能會晚個 \(liveBoard.delayTime) 分鐘吧..."
@@ -99,7 +99,7 @@ class TRALiveBoardTableViewController: UITableViewController {
         case .southBound:
             let liveBoard = southBoundTrain[indexPath.row]
             
-            var msg = "往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
+            var msg = "車次 \(liveBoard.trainNo) 往 \(liveBoard.endingStationNameZh) 的 \(liveBoard.trainTypeName) 在 \(liveBoard.scheduledArrivalTime) 的時候會來"
             
             if liveBoard.delayTime != 0 {
                 msg += "\n也可能會晚個 \(liveBoard.delayTime) 分鐘吧..."
