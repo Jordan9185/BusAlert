@@ -167,7 +167,7 @@ extension TaipeiStationLiveBoardTableViewController: RailwayInfomationProviderDe
 extension TaipeiStationLiveBoardTableViewController: BikeInfomationProviderDelegate {
     func provider(prvider: BikeInfomationProvider, didGet bikeAvailabilityStation: BikeStation) {
         DispatchQueue.main.async {
-            self.bikeAvaliableLable.text = "汐止火車站的 U-bike\n目前還有 \(bikeAvailabilityStation.AvailableRentBikes)輛 可以借"
+            self.bikeAvaliableLable.text = "汐止火車站的 U-bike\n目前還有 \(bikeAvailabilityStation.AvailableRentBikes) 輛 可以借"
             Animation.labelAnimation(label: self.bikeAvaliableLable, view: self.view)
         }
     }
