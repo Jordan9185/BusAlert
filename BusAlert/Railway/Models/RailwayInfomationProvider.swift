@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CryptoSwift
 
 protocol RailwayInfomationProviderDelegate: class {
     func provider(prvider: RailwayInfomationProvider, didGet trainTypes: [TrainType])

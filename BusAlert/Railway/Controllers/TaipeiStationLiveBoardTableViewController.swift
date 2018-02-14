@@ -9,7 +9,10 @@
 import UIKit
 
 class TaipeiStationLiveBoardTableViewController: UITableViewController {
+    
     // MARK: - Properties
+    @IBOutlet weak var bikeAvaliableLable: UILabel!
+    
     var railwayInfomationProvider = RailwayInfomationProvider()
     
     var timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
@@ -37,11 +40,13 @@ class TaipeiStationLiveBoardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         railwayInfomationProvider.delegate = self
+        BikeInfomationProvider.shard.delegate = self
         
-        self.timer.schedule(deadline: DispatchTime.now(), repeating: .seconds(60), leeway: .milliseconds(10))
+        self.timer.schedule(deadline: DispatchTime.now(), repeating: .seconds(30), leeway: .milliseconds(10))
         
         self.timer.setEventHandler(handler: {
             DispatchQueue.main.sync {
+                BikeInfomationProvider.shard.getBikeAvailability(stationId: BikeStation.xizhiRailwayStation)
                 self.railwayInfomationProvider.getTRALiveBoardInfomation(stationId: RailLiveBoard.TaipeiStation)
             }
         })
@@ -141,11 +146,6 @@ class TaipeiStationLiveBoardTableViewController: UITableViewController {
 
 extension TaipeiStationLiveBoardTableViewController: RailwayInfomationProviderDelegate {
     func provider(prvider: RailwayInfomationProvider, didGet railLiveBoards: [RailLiveBoard]) {
-        
-        railLiveBoards.forEach { (board) in
-            print(board.trainNo)
-        }
-        
         self.railLiveBoards = railLiveBoards
         
         if trainTypes.isEmpty {
@@ -161,5 +161,18 @@ extension TaipeiStationLiveBoardTableViewController: RailwayInfomationProviderDe
     
     func provider(prvider: RailwayInfomationProvider, didGet trainTypes: [TrainType]) {
         self.trainTypes = trainTypes
+    }
+}
+
+extension TaipeiStationLiveBoardTableViewController: BikeInfomationProviderDelegate {
+    func provider(prvider: BikeInfomationProvider, didGet bikeAvailabilityStation: BikeStation) {
+        DispatchQueue.main.async {
+            self.bikeAvaliableLable.text = "汐止火車站的 U-bike\n目前還有 \(bikeAvailabilityStation.AvailableRentBikes)輛 可以借"
+            Animation.labelAnimation(label: self.bikeAvaliableLable, view: self.view)
+        }
+    }
+    
+    func provider(prvider: BikeInfomationProvider, didFailWith error: BikeInfomationProviderError) {
+        print(error.localizedDescription)
     }
 }

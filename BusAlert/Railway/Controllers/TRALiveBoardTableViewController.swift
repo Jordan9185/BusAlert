@@ -179,10 +179,10 @@ class TRALiveBoardTableViewController: UITableViewController {
 extension TRALiveBoardTableViewController: RailwayInfomationProviderDelegate {
     func provider(prvider: RailwayInfomationProvider, didGet railLiveBoards: [RailLiveBoard]) {
         
-        railLiveBoards.forEach { (board) in
-            print(board.trainClassificationId)
-        }
-        
+//        railLiveBoards.forEach { (board) in
+//            print(board.trainClassificationId)
+//        }
+
         self.railLiveBoards = railLiveBoards
         
         if trainTypes.isEmpty {
@@ -198,6 +198,6 @@ extension TRALiveBoardTableViewController: RailwayInfomationProviderDelegate {
     
     func provider(prvider: RailwayInfomationProvider, didGet trainTypes: [TrainType]) {
         self.trainTypes = trainTypes
-        print(trainTypes)
+        //print(trainTypes)
     }
 }
